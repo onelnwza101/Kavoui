@@ -1208,7 +1208,7 @@ end
 end)
 else
 if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
-Players.PlayerAdded:Connect(function(player)
+game.Players.PlayerAdded:Connect(function(player)
 for _,v in pairs(Admins) do
 if player.name == v then
 	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	

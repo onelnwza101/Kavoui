@@ -1209,7 +1209,7 @@ end)
 else
 if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
 if game.Players:FindFirstChild("romoneand") then
-for i,v in pairs(game.Players:GetChildren()) do
+for _,player in pairs(game.Players:GetChildren()) do
 for _,v in pairs(Admins) do
 if player.name == v then
 	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	

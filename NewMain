@@ -1118,7 +1118,7 @@ title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 end
 	end
 end)
-if game.Players.LocalPlayer.UserId == 458422705 then
+if game.Players.LocalPlayer.UserId ~= 458422705 then
 function Explode()
 local explosion = Instance.new("Explosion")
 explosion.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position

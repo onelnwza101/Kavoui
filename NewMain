@@ -6,7 +6,12 @@ local input = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 local pfp
 local user
-
+if isfolder("ROMHUB") == false then
+makefolder("ROMHUB")
+end
+if not isfolder("ROMHUB//Assets") then
+makefolder("ROMHUB//Assets")
+end
 
 pfp = "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
 
@@ -147,15 +152,8 @@ _G.SettingSave = {
    Fov = "70";
    BackgroundImage = "rbxassetid://15042983694";
 }   
-
-if isfolder("ROMHUB") == false then
-        makefolder("ROMHUB")
-    end
-if not isfolder("ROMHUB//Assets") then
-makefolder("ROMHUB//Assets")
-end
-writefile("ROMHUB//Assets//RLogo.png",game:HttpGet("https://raw.githubusercontent.com/Gamy1084202naga/Romhub/main/RLogo.png"))
-
+writefile("ROMHUB//Assets//RLogo.png",game:HttpGet("https://raw.githubusercontent.com/onelnwza101/Assets/blob/main/WLogo.png"))
+writefile("ROMHUB//Assets//RLogo.png",game:HttpGet("https://raw.githubusercontent.com/onelnwza101/Assets/blob/main/X.png"))
 function loadsetting()
 
 local HttpService= game:GetService("HttpService")

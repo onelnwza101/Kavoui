@@ -408,7 +408,7 @@ close = false
 Kavo:ToggleUI() 
 game:GetService("TweenService"):Create(Icon, TweenInfo.new(0, Enum.EasingStyle.Quint),
             { BackgroundTransparency = 1  }):Play()
-Custom.Image = getcustomasset("ROMHUB//Assets//WLgo.png")
+Custom.Image = getcustomasset("ROMHUB//Assets//WLogo.png")
 Custom.Size = UDim2.new(0, 31, 0, 31)
 game:GetService("TweenService"):Create(Custom, TweenInfo.new(0.5, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,35,0,35) }):Play()

@@ -156,7 +156,7 @@ _G.SettingSave = {
    Anonymous = false;
    HideText = false;
    FastIntro = false;
-   Fov = "70";
+   Fov = "0";
 }   
 
 function loadsetting()
@@ -1258,7 +1258,7 @@ end)
 
 spawn(function()
 	while wait() do
-	if _G.SettingSave.Fov then
+	if _G.SettingSave.Fov ~= "0" then
 	game.Workspace.Camera.FieldOfView = _G.SettingSave.Fov
 	end
 	if _G.SettingSave.Anonymous and _G.SettingSave.HideText then
@@ -1342,7 +1342,7 @@ local textboxElement = Instance.new("TextButton")
                 togName.Position = UDim2.new(0.096704483, 0, 0.462727281, 0)
                 togName.Size = UDim2.new(0, 138, 0, 14)
                 togName.Font = Enum.Font.GothamSemibold
-                togName.Text = "FOV"
+                togName.Text = "FOV (0 to cancel)"
                 togName.RichText = true
                 togName.TextColor3 = themeList.TextColor
                 togName.TextSize = 12.000
@@ -1362,6 +1362,7 @@ end
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
                     end
                     if not EnterPressed then
+                    if TextBox.Text ~= "0" then
                        if TextBox.Text ~= _G.SettingSave.Fov then
                        if isNumber(TextBox.Text) then
              
@@ -1374,7 +1375,9 @@ end
                        
                        end
                      end 
+                     end
                     else
+                    if TextBox.Text ~= "0" then
                 if TextBox.Text ~= _G.SettingSave.Fov then
                        if isNumber(TextBox.Text) then
                        
@@ -1387,6 +1390,7 @@ end
                        
                        end
                      end 
+                     end
                     end
                 end)
 
